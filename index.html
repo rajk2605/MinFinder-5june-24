@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title> Min Finder App By Raj </title>
+	<style> 
+		*{font-size:50px;}
+		body{background-color:#FFE4E1}
+		.btn{border-radius:30px; margin-left:30px;}
+		.btn:hover{color:red;}
+	</style>
+
+</head>
+
+<body>
+<center>
+	<h1> Rating App </h1>
+	<form onsubmit ="find()">
+	<input type="number" placeholder="Enter First Number" id="num1"/>
+	<br><br>
+	<input type="number" placeholder="Enter Second Number" id="num2"/>
+	<br><br>
+	<input type="submit" value="M1" class="btn"/>
+	<input type="submit" value="M2" class="btn"/>
+	<input type="submit" value="M3" class="btn"/>
+	</form>
+	<h2 id="msg"/>
+
+	<script>
+	function find()
+	{
+		event.preventDefault();
+		let num1 = document.getElementById("num1");
+		let num2 = document.getElementById("num2");
+		let msg = document.getElementById("msg");
+
+		if(num1.value == "")
+		{
+			alert("Please Enter First Number");
+			msg.innerHTML ="";
+			num1.focus();
+			return;
+			
+		}
+
+		if(num2.value == "")
+		{
+			alert("Please Enter Second Number");
+			msg.innerHTML ="";
+			num2.focus();
+			return;
+			
+		}
+
+		let ele = document.activeElement.value;
+		let ans = "";
+		let n1 = parseFloat(num1.value);
+		let n2 = parseFloat(num2.value);
+
+		if(ele == "M1")
+		{
+			ans = n1 < n2? "Min =" + n1 : "Min =" + n2;
+			msg.innerHTML = "M1--> " + ans;
+		}
+
+		else if (ele == "M2")
+		{
+			if (n1<n2)
+				ans = "Min =" + n1;
+			else
+				ans = "Min =" + n2;
+			msg.innerHTML = "M2-->" + ans;
+		}
+		
+		else if (ele == "M3")
+		{
+			let min = Math.min(n1, n2);
+			msg.innerHTML = "M3--> Min=" + min;
+		
+		}
+	}
+	</script>
+
+
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
